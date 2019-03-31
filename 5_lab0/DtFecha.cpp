@@ -5,7 +5,7 @@
 
 using namespace std;
 
-
+//DataType Fecha
 DtFecha::DtFecha () {
 	time_t fecha = time(0);
 	
