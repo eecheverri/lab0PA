@@ -1,6 +1,8 @@
 #ifndef Mascota
 #define Mascota
 
+#include <string>
+
 class Mascota {
 private:
   //Atributos
