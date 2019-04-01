@@ -11,15 +11,15 @@ class Socio
     string ci;
     string nombre;
     DtFecha fechaingreso;
-    //map<Mascota, int> * listaMascotas;
-    //map<Consulta, int> * listaConsultas;
+    //map<Mascota, int> * mapMascotas;
+    //map<Consulta, int> * mapConsultas;
   public:
   //Constructores
   //Constructor por defecto
   Socio();
   
   //Constructor comun
-  Socio(string pci, string, pnombre, DtFecha pfechaingreso, map<Mascota, int> plistaMascotas, map<Consulta, int> * plistaConsultas);
+  Socio(string pci, string, pnombre, DtFecha pfechaingreso, map<Mascota, int> pmapMascotas, map<Consulta, int> * pmapConsultas);
   
   //Propiedades
   void setCi(string pci);
@@ -32,11 +32,11 @@ class Socio
   DtFecha getFechaIngreso();
   
   /*
-  void setListaMascotas(map<Mascota, int> plistaMascotas);
-  map<Mascota, int> getListaMascotas();
+  void setMapMascotas(map<Mascota, int> pmapMascotas);
+  map<Mascota, int> getMapMascotas();
   
-  void setListaConsultas(map<Consulta, int> plistaConsultas);
-  map<Consulta, int> getListaConsultas();*/
+  void setMapConsultas(map<Consulta, int> pmapConsultas);
+  map<Consulta, int> getMapConsultas();*/
   
   
   
