@@ -1,7 +1,7 @@
 #ifndef Perro
 #define Perro
 
-class Perro: pubic Mascota
+class Perro: public Mascota
 {
   private: RazaPerro raza;
            bool vacunaCachorro;
