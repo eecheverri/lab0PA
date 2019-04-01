@@ -1,6 +1,8 @@
 #ifndef Consulta
 #define Consulta
 
+#include <string>
+
 class Consulta 
 {
   private:
