@@ -28,6 +28,10 @@ public:
   void setPeso(float ppeso);
   float getPeso();
   
+  //Operaciones
+  
+  public:virtual float obtenerRacionDiaria() = 0;
+  
   //Destructor
   ~Mascota();
   
