@@ -3,52 +3,48 @@
 //constructor por defecto
 Mascota::Mascota()
 {
-  nombre = "";
-  genero = null;
+  nombre = "nombre";
+  genero = Genero();
   peso = 0;
 }
 //constructor comun
-Mascota:Mascota(string pnombre, Genero pgenero, float ppeso)
+Mascota::Mascota(string nombre, Genero genero, float peso)
 {
-  nombre = pnombre;
-  genero = pgenero;
-  peso = ppeso;
+  this->nombre = nombre;
+  this->genero = genero;
+  this->peso = peso;
 }
 
 //propiedades
-void setNombre(string pnombre)
+void Mascota::setNombre(string nombre)
 {
-  nombre = pnombre;
+  this->nombre = nombre;
 }
 
-string getNombre()
+string Mascota::getNombre()
 {
-  return nombre;
+  return this->nombre;
 }
 
-void setGenero(Genero pgenero)
+void Mascota::setGenero(Genero genero)
 {
-  genero = pgenero;
+  this->genero = genero;
 }
 
-Genero getGenero()
+Genero Mascota::getGenero()
 {
-  return genero;
+  return this->genero;
 }
 
-void setPeso(float ppeso)
+void Mascota::setPeso(float peso)
 {
-  peso = ppeso;
+  this->peso = peso;
 }
 
-float getPeso()
+float Mascota::getPeso()
 {
-  return peso;
+  return this->peso;
 }
-
-//Operaciones
-  
-public:virtual float obtenerRacionDiaria(){}//Duda de sintaxis
   
 //Destructor
 Mascota::~Mascota(){}

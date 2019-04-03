@@ -1,35 +1,36 @@
 #include "Consulta.h"
+#include "DtFecha.h"
 
 //constructor por defecto
 Consulta::Consulta()
 {
-  fechaConsulta = "";//ver tema fecha
+  fechaConsulta = DtFecha();
   motivo = "";
 }
 //constructor comun
-Consulta:Consulta(DtFecha pfechaConsulta, string pmotivo)
+Consulta::Consulta(DtFecha pfechaConsulta, string pmotivo)
 {
   fechaConsulta = pfechaConsulta;
   motivo = pmotivo;
 }
 
 //propiedades
-void setFechaConsulta(DtFecha pfechaConsulta)
+void Consulta::setFechaConsulta(DtFecha pfechaConsulta)
 {
   fechaConsulta = pfechaConsulta;
 }
 
-DtFecha getFechaConsulta()
+DtFecha Consulta::getFechaConsulta()
 {
   return fechaConsulta;
 }
 
-void setMotivo(string pmotivo)
+void Consulta::setMotivo(string pmotivo)
 {
   motivo = pmotivo;
 }
 
-string getMotivo()
+string Consulta::getMotivo()
 {
   return motivo;
 }

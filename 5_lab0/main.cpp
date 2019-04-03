@@ -5,27 +5,9 @@
 #include "RazaPerro.h"
 #include "TipoPelo.h"
 #include "DtFecha.h"
+#include "DtConsulta.h"
 
 using namespace std;
-
-
-
-
-/*
-struct DtGato {
-   TipoPelo  tipoPelo;
-};  
-
-struct DtPerro {
-   RazaPerro  razaPerro;
-   bool  vacunaCachorro;
-};  
-*/
-struct DtConsulta {
-   DtFecha    fechaConsulta;
-   string     motivo;
-};  
-
 
 
 void registrarSocio(string ci, string nombre, const DtMascota& dtMascota) /* Registra un socio con su mascota. El valor el atributo racionDiaria sedebe setear en 0.*/

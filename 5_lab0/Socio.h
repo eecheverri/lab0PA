@@ -1,8 +1,11 @@
-#ifndef Socio
-#define Socio
+#ifndef Socio_H
+#define Socio_H
 
-#include <map>
-#include <string>
+#include "DtFecha.h"
+#include "Mascota.h"
+#include "Consulta.h"
+
+using namespace std;
 
 class Socio
 {
@@ -10,39 +13,35 @@ class Socio
     //Atributos
     string ci;
     string nombre;
-    DtFecha fechaingreso;
-    //map<Mascota, int> * mapMascotas;
-    //map<Consulta, int> * mapConsultas;
+    DtFecha fechaIngreso;
+	
   public:
   //Constructores
   //Constructor por defecto
   Socio();
   
   //Constructor comun
-  Socio(string pci, string, pnombre, DtFecha pfechaingreso, map<Mascota, int> pmapMascotas, map<Consulta, int> * pmapConsultas);
+  Socio(string, string, DtFecha);
   
   //Propiedades
-  void setCi(string pci);
+  void setCi(string);
   string getCi();
   
-  void setNombre(string pnombre);
+  void setNombre(string);
   string getNombre();
   
-  void setFechaIngreso(DtFecha pfechaingreso);
+  void setFechaIngreso(DtFecha);
   DtFecha getFechaIngreso();
   
-  /*
-  void setMapMascotas(map<Mascota, int> pmapMascotas);
-  map<Mascota, int> getMapMascotas();
+  //void agregarMascota(Mascota*);  
   
-  void setMapConsultas(map<Consulta, int> pmapConsultas);
-  map<Consulta, int> getMapConsultas();*/
+  //void agregarConsulta(Consulta*); 
   
-  
+  //Consulta** verConsultasAntesDeFecha(DtFecha);
   
   //Destructor
   ~Socio();
   
-}
+};
 
-#endef
+#endif

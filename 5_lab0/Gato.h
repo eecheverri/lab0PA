@@ -1,5 +1,11 @@
-#ifndef Gato
-#define Gato
+#ifndef Gato_H
+#define Gato_H
+
+#include "TipoPelo.h"
+#include "Genero.h"
+#include "Mascota.h"
+
+using namespace std;
 
 class Gato: public Mascota
 {
@@ -9,16 +15,19 @@ class Gato: public Mascota
           //constructor por defecto
           Gato();
           //constructor comun
-          Gato(TipoPelo ptipoPelo):base(pnombre,pgenero,ppeso);
+          Gato(string, Genero, float, TipoPelo);
           
           //propiedades
-          void setTipoPelo();
+          void setTipoPelo(TipoPelo);
           TipoPelo getTipoPelo();
                     
           //operaciones
           float obtenerRacionDiaria();
           
           //Destructor
-          Gato::~Gato(){}
+          virtual ~Gato();
           
-}
+};
+
+#endif
+

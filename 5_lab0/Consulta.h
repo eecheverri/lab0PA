@@ -1,8 +1,8 @@
-#ifndef Consulta
-#define Consulta
+#ifndef Consulta_H
+#define Consulta_H
 
 #include <string>
-
+#include "DtFecha.h"
 class Consulta 
 {
   private:
@@ -14,7 +14,7 @@ class Consulta
   //Constructor por defecto
   Consulta();
   //Constructor comun
-  Consulta(DtFecha pfechaConsulta, string pmotivo);
+  Consulta(DtFecha , string);
   
   //Propiedades
   void setFechaConsulta(DtFecha pfechaConsulta);
@@ -26,7 +26,7 @@ class Consulta
   //Destructor
   ~Consulta();
   
-}//Fin Consulta
+};//Fin Consulta
 
-#endef
+#endif
   

@@ -4,8 +4,8 @@
 CPP      = g++.exe
 CC       = gcc.exe
 WINDRES  = windres.exe
-OBJ      = main.o DtMascota.o Genero.o RazaPerro.o TipoPelo.o DtFecha.o DtPerro.o DtGato.o $(RES)
-LINKOBJ  = main.o DtMascota.o Genero.o RazaPerro.o TipoPelo.o DtFecha.o DtPerro.o DtGato.o $(RES)
+OBJ      = main.o DtMascota.o Genero.o RazaPerro.o TipoPelo.o DtFecha.o DtPerro.o DtGato.o Consulta.o Gato.o Mascota.o Perro.o Socio.o DtConsilta.o $(RES)
+LINKOBJ  = main.o DtMascota.o Genero.o RazaPerro.o TipoPelo.o DtFecha.o DtPerro.o DtGato.o Consulta.o Gato.o Mascota.o Perro.o Socio.o DtConsilta.o $(RES)
 LIBS     = -L"D:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc  
 INCS     = -I"D:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" 
 CXXINCS  = -I"D:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" 
@@ -48,3 +48,21 @@ DtPerro.o: DtPerro.cpp
 
 DtGato.o: DtGato.cpp
 	$(CPP) -c DtGato.cpp -o DtGato.o $(CXXFLAGS)
+
+Consulta.o: Consulta.cpp
+	$(CPP) -c Consulta.cpp -o Consulta.o $(CXXFLAGS)
+
+Gato.o: Gato.cpp
+	$(CPP) -c Gato.cpp -o Gato.o $(CXXFLAGS)
+
+Mascota.o: Mascota.cpp
+	$(CPP) -c Mascota.cpp -o Mascota.o $(CXXFLAGS)
+
+Perro.o: Perro.cpp
+	$(CPP) -c Perro.cpp -o Perro.o $(CXXFLAGS)
+
+Socio.o: Socio.cpp
+	$(CPP) -c Socio.cpp -o Socio.o $(CXXFLAGS)
+
+DtConsilta.o: DtConsilta.cpp
+	$(CPP) -c DtConsilta.cpp -o DtConsilta.o $(CXXFLAGS)

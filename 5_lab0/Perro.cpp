@@ -1,44 +1,45 @@
 #include "Perro.h"
 
+
 //constructor por defecto
 Perro::Perro()
 {
-  raza = "otro";
+  raza = otro;
   vacunaCachorro = false;
 }
 
 //constructor comun
-Perro:Perro(RazaPerro praza, bool pvacunaCachorro):base(pnombre, pgenero, ppeso)
+Perro::Perro(string nombre, Genero genero, float peso, RazaPerro raza, bool vacunaCachorro):Mascota(nombre, genero, peso)
 {
-  raza = praza;
-  vacunaCachorro = pvacunaCachorro;
+  this->raza = raza;
+  this->vacunaCachorro = vacunaCachorro;
 }
 
 //propiedades
-void setRaza(RazaPerro praza)
+void Perro::setRazaPerro(RazaPerro praza)
 {
   raza = praza;
 }
 
-RazaPerro getRaza()
+RazaPerro Perro::getRazaPerro()
 {
-  return raza;
+  return this->raza;
 }
 
-void setVacunaCachorro(bool pvacunaCachorro)
+void Perro::setVacunaCachorro(bool pvacunaCachorro)
 {
   vacunaCachorro = pvacunaCachorro;
 }
 
-bool getVacunaCachorro()
+bool Perro::getVacunaCachorro()
 {
-  return vacunaCachorro;
+  return this->vacunaCachorro;
 }
 
 //Operaciones
 float Perro::obtenerRacionDiaria()
 {
-  return base.peso * 0.025;
+  return getPeso() * 0.025;
 }
 
   

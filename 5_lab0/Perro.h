@@ -1,8 +1,11 @@
-#ifndef Perro
-#define Perro
+#ifndef Perro_H
+#define Perro_H
 
-class Perro: public Mascota
-{
+#include "RazaPerro.h"
+#include "Mascota.h"
+#include "Genero.h"
+
+class Perro: public Mascota{
   private: RazaPerro raza;
            bool vacunaCachorro;
            
@@ -10,19 +13,21 @@ class Perro: public Mascota
           //constructor por defecto
           Perro();
           //constructor comun
-          Perro(RazaPerro praza, bool pvacunaCachorro):base(pnombre,pgenero,ppeso);
+          Perro(string, Genero, float, RazaPerro, bool);
           
           //propiedades
-          void setRazaPerro();
+          void setRazaPerro(RazaPerro);
           RazaPerro getRazaPerro();
           
-          void setVacunaCachorro();
-          bool vacunaCachorro();
+          void setVacunaCachorro(bool);
+          bool getVacunaCachorro();
           
           //operaciones
           float obtenerRacionDiaria();
           
           //Destructor
-          Perro::~Perro(){}
+          ~Perro();
           
-}
+};
+
+#endif

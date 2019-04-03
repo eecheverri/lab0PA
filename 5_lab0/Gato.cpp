@@ -3,30 +3,30 @@
 //constructor por defecto
 Gato::Gato()
 {
-  tipoPelo = "Mediano";
+  tipoPelo = Mediano;
 }
 
 //constructor comun
-Gato:Gato(TipoPelo ptipoPelo):base(pnombre, pgenero, ppeso)
+Gato::Gato(string nombre, Genero genero, float peso, TipoPelo tipoPelo):Mascota(nombre, genero, peso)
 {
-  tipoPelo = ptipoPelo;
+  this->tipoPelo = tipoPelo;
 }
 
 //propiedades
-void setTipoPelo(TipoPelo ptipoPelo)
+void Gato::setTipoPelo(TipoPelo tipoPelo)
 {
-  tipoPelo = ptipoPelo;
+  this->tipoPelo = tipoPelo;
 }
 
-TipoPelo getTipoPelo()
+TipoPelo Gato::getTipoPelo()
 {
-  return tipoPelo;
+  return this->tipoPelo;
 }
 
 //Operaciones
 float Gato::obtenerRacionDiaria()
 {
-  return base.peso * 0.015;
+  return getPeso() * 0.015;//base->peso * 0.015;
 }
 
   

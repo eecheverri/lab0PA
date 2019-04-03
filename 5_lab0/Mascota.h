@@ -1,46 +1,51 @@
-#ifndef Mascota
-#define Mascota
+#ifndef Mascota_H
+#define Mascota_H
 
 #include <string>
+#include "Genero.h"
 
-class Mascota {
-private:
-  //Atributos
-  string nombre;
-  Genero genero;
-  float peso;
-public:
-  
-  //Constructores
-  
-  //Constructor por defecto
-  Mascota();
-  
-  //Constructor comun
-  Mascota(string pnombre, Genero, pgenero, float ppeso);
-  
-  //Propiedades
-  
-  void setNombre(string pnombre);
-  string getNombre();
-  
-  void setGenero(Genero pgenero);
-  Genero getGenero();
-  
-  void setPeso(float ppeso);
-  float getPeso();
-  
-  //Operaciones
-  
-  public:virtual float obtenerRacionDiaria() = 0;
-  
-  //Destructor
-  ~Mascota();
-  
-}//Fin mascota
+using namespace std;
 
-#endef
-  
-  
+class Mascota 
+	{
+	private:
+	  //Atributos
+	  string nombre;
+	  Genero genero;
+	  float peso;
+	  
+	public:
+	  
+	  //Constructores
+	  
+	  //Constructor por defecto
+	  Mascota();
+	  
+	  //Constructor comun
+	  Mascota(string, Genero, float);
+	  
+	  //Propiedades
+	  
+	  void setNombre(string);
+	  string getNombre();
+	  
+	  void setGenero(Genero);
+	  Genero getGenero();
+	  
+	  void setPeso(float);
+	  float getPeso();
+	  
+	  //Operaciones
+	  
+	  virtual float obtenerRacionDiaria() = 0;
+	  
+	  //Destructor
+	  virtual ~Mascota();
+	  
+};//Fin mascota
+	
+#endif
+	  
+	  
   
   
