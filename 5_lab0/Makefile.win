@@ -1,29 +1,28 @@
 # Project: lab0
-# Makefile created by Dev-C++ 5.1.1.0
+# Makefile created by Dev-C++ 5.11
 
 CPP      = g++.exe
 CC       = gcc.exe
 WINDRES  = windres.exe
-OBJ      = main.o DtMascota.o Genero.o RazaPerro.o TipoPelo.o DtFecha.o DtPerro.o DtGato.o Consulta.o Gato.o Mascota.o Perro.o Socio.o DtConsilta.o $(RES)
-LINKOBJ  = main.o DtMascota.o Genero.o RazaPerro.o TipoPelo.o DtFecha.o DtPerro.o DtGato.o Consulta.o Gato.o Mascota.o Perro.o Socio.o DtConsilta.o $(RES)
-LIBS     = -L"D:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc  
-INCS     = -I"D:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" 
-CXXINCS  = -I"D:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" 
+OBJ      = main.o DtMascota.o Genero.o RazaPerro.o TipoPelo.o DtFecha.o DtPerro.o DtGato.o Consulta.o Gato.o Mascota.o Perro.o Socio.o DtConsilta.o
+LINKOBJ  = main.o DtMascota.o Genero.o RazaPerro.o TipoPelo.o DtFecha.o DtPerro.o DtGato.o Consulta.o Gato.o Mascota.o Perro.o Socio.o DtConsilta.o
+LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib" -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc
+INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
+CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
 BIN      = lab0.exe
-CXXFLAGS = $(CXXINCS)  
-CFLAGS   = $(INCS)  
-RM       = rm -f
+CXXFLAGS = $(CXXINCS) 
+CFLAGS   = $(INCS) 
+RM       = rm.exe -f
 
 .PHONY: all all-before all-after clean clean-custom
 
-all: all-before lab0.exe all-after
-
+all: all-before $(BIN) all-after
 
 clean: clean-custom
 	${RM} $(OBJ) $(BIN)
 
 $(BIN): $(OBJ)
-	$(CPP) $(LINKOBJ) -o "lab0.exe" $(LIBS)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
 
 main.o: main.cpp
 	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)
