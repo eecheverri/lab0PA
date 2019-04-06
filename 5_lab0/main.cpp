@@ -7,6 +7,8 @@
 #include "DtFecha.h"
 #include "DtConsulta.h"
 
+#define MAX_SOCIOS 100
+
 using namespace std;
 
 
@@ -32,7 +34,7 @@ void eliminarSocio(string ci) /*que elimina al socio, sus consultas y sus mascot
 {
 }
 
- DtMascota** obtenerMascotas(string ci, int& cantMascotas)/*devuelve un arreglo con las mascotas del socio. El largo del arreglo está dado por el
+DtMascota** obtenerMascotas(string ci, int& cantMascotas)/*devuelve un arreglo con las mascotas del socio. El largo del arreglo está dado por el
 parámetro cantMascotas. Si no existe un socio registrado con esa cédula, se levanta
 una excepción std::invalid_argument.*/
 {
@@ -86,6 +88,8 @@ int main() {
 				cin >> tieneVacunaCachorro;
 				vacunaCachorro = (tieneVacunaCachorro == 'S');							
 			}
+			
+			
 			
 		}
 

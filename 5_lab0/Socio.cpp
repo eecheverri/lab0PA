@@ -36,6 +36,13 @@ DtFecha Socio::getFechaIngreso(){
 	return this->fechaIngreso;	
 }
 
+void Socio::agregarMascota(Mascota* mascota) {
+	
+	this->tope++;
+	this->mascotas[tope] = mascota;
+	
+}
+
 Socio::~Socio() {
 
 }

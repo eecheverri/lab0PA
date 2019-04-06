@@ -5,7 +5,15 @@
 #include "Mascota.h"
 #include "Consulta.h"
 
+#define MAX_MASCOTAS 10
+
 using namespace std;
+
+/*struct mascotas{
+	Mascota* mascotas[MAX_MASCOTAS];
+	int tope;
+} ;*/
+
 
 class Socio
 {
@@ -14,6 +22,8 @@ class Socio
     string ci;
     string nombre;
     DtFecha fechaIngreso;
+	Mascota* mascotas[MAX_MASCOTAS];
+	int tope;
 	
   public:
   //Constructores
@@ -33,7 +43,7 @@ class Socio
   void setFechaIngreso(DtFecha);
   DtFecha getFechaIngreso();
   
-  //void agregarMascota(Mascota*);  
+  void agregarMascota(Mascota*);  
   
   //void agregarConsulta(Consulta*); 
   

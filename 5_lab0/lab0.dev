@@ -2,7 +2,7 @@
 FileName=lab0.dev
 Name=lab0
 Type=1
-Ver=1
+Ver=2
 ObjFiles=
 Includes=
 Libs=
@@ -29,7 +29,7 @@ IncludeVersionInfo=0
 SupportXPThemes=0
 CompilerSet=0
 CompilerSettings=000000000000000000000000000
-UnitCount=28
+UnitCount=25
 
 [VersionInfo]
 Major=1
@@ -90,67 +90,7 @@ Priority=1000
 OverrideBuildCmd=0
 BuildCmd=
 
-[Unit5]
-FileName=Genero.cpp
-CompileCpp=1
-Folder=
-Compile=1
-Link=1
-Priority=1000
-OverrideBuildCmd=0
-BuildCmd=
-
-[Unit6]
-FileName=RazaPerro.h
-CompileCpp=1
-Folder=
-Compile=1
-Link=1
-Priority=1000
-OverrideBuildCmd=0
-BuildCmd=
-
-[Unit7]
-FileName=RazaPerro.cpp
-CompileCpp=1
-Folder=
-Compile=1
-Link=1
-Priority=1000
-OverrideBuildCmd=0
-BuildCmd=
-
 [Unit8]
-FileName=TipoPelo.h
-CompileCpp=1
-Folder=
-Compile=1
-Link=1
-Priority=1000
-OverrideBuildCmd=0
-BuildCmd=
-
-[Unit9]
-FileName=TipoPelo.cpp
-CompileCpp=1
-Folder=
-Compile=1
-Link=1
-Priority=1000
-OverrideBuildCmd=0
-BuildCmd=
-
-[Unit10]
-FileName=DtFecha.h
-CompileCpp=1
-Folder=
-Compile=1
-Link=1
-Priority=1000
-OverrideBuildCmd=0
-BuildCmd=
-
-[Unit11]
 FileName=DtFecha.cpp
 CompileCpp=1
 Folder=
@@ -160,7 +100,7 @@ Priority=1000
 OverrideBuildCmd=0
 BuildCmd=
 
-[Unit12]
+[Unit9]
 FileName=DtPerro.h
 CompileCpp=1
 Folder=
@@ -170,7 +110,7 @@ Priority=1000
 OverrideBuildCmd=0
 BuildCmd=
 
-[Unit13]
+[Unit10]
 FileName=DtPerro.cpp
 CompileCpp=1
 Folder=
@@ -180,7 +120,7 @@ Priority=1000
 OverrideBuildCmd=0
 BuildCmd=
 
-[Unit14]
+[Unit11]
 FileName=DtGato.h
 CompileCpp=1
 Folder=
@@ -190,7 +130,7 @@ Priority=1000
 OverrideBuildCmd=0
 BuildCmd=
 
-[Unit15]
+[Unit12]
 FileName=DtGato.cpp
 CompileCpp=1
 Folder=
@@ -200,7 +140,7 @@ Priority=1000
 OverrideBuildCmd=0
 BuildCmd=
 
-[Unit16]
+[Unit13]
 FileName=Socio.h
 CompileCpp=1
 Folder=lab0
@@ -210,7 +150,7 @@ Priority=1000
 OverrideBuildCmd=0
 BuildCmd=
 
-[Unit17]
+[Unit14]
 FileName=Consulta.cpp
 CompileCpp=1
 Folder=lab0
@@ -220,7 +160,7 @@ Priority=1000
 OverrideBuildCmd=0
 BuildCmd=
 
-[Unit18]
+[Unit15]
 FileName=Consulta.h
 CompileCpp=1
 Folder=lab0
@@ -230,7 +170,7 @@ Priority=1000
 OverrideBuildCmd=0
 BuildCmd=
 
-[Unit19]
+[Unit16]
 FileName=Gato.cpp
 CompileCpp=1
 Folder=lab0
@@ -240,7 +180,7 @@ Priority=1000
 OverrideBuildCmd=0
 BuildCmd=
 
-[Unit20]
+[Unit17]
 FileName=Gato.h
 CompileCpp=1
 Folder=lab0
@@ -250,8 +190,9 @@ Priority=1000
 OverrideBuildCmd=0
 BuildCmd=
 
-[Unit21]
+[Unit18]
 FileName=Makefile.win
+CompileCpp=1
 Folder=lab0
 Compile=0
 Link=0
@@ -259,7 +200,7 @@ Priority=1000
 OverrideBuildCmd=0
 BuildCmd=
 
-[Unit22]
+[Unit19]
 FileName=Mascota.cpp
 CompileCpp=1
 Folder=lab0
@@ -269,7 +210,7 @@ Priority=1000
 OverrideBuildCmd=0
 BuildCmd=
 
-[Unit23]
+[Unit20]
 FileName=Mascota.h
 CompileCpp=1
 Folder=lab0
@@ -279,8 +220,18 @@ Priority=1000
 OverrideBuildCmd=0
 BuildCmd=
 
-[Unit24]
+[Unit21]
 FileName=Perro.cpp
+Folder=lab0
+Compile=1
+Link=1
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=
+CompileCpp=1
+
+[Unit22]
+FileName=Perro.h
 CompileCpp=1
 Folder=lab0
 Compile=1
@@ -289,10 +240,30 @@ Priority=1000
 OverrideBuildCmd=0
 BuildCmd=
 
-[Unit25]
-FileName=Perro.h
+[Unit23]
+FileName=Socio.cpp
 CompileCpp=1
-Folder=lab0
+Folder=
+Compile=1
+Link=1
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=
+
+[Unit24]
+FileName=DtConsulta.h
+CompileCpp=1
+Folder=
+Compile=1
+Link=1
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=
+
+[Unit25]
+FileName=DtConsilta.cpp
+CompileCpp=1
+Folder=
 Compile=1
 Link=1
 Priority=1000
@@ -321,6 +292,36 @@ BuildCmd=
 
 [Unit28]
 FileName=DtConsilta.cpp
+CompileCpp=1
+Folder=
+Compile=1
+Link=1
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=
+
+[Unit5]
+FileName=RazaPerro.h
+CompileCpp=1
+Folder=
+Compile=1
+Link=1
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=
+
+[Unit6]
+FileName=TipoPelo.h
+CompileCpp=1
+Folder=
+Compile=1
+Link=1
+Priority=1000
+OverrideBuildCmd=0
+BuildCmd=
+
+[Unit7]
+FileName=DtFecha.h
 CompileCpp=1
 Folder=
 Compile=1

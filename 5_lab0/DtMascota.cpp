@@ -8,7 +8,7 @@ using namespace std;
 
 DtMascota::DtMascota () {
 	nombre = "";
-	genero = Genero(Macho);
+	genero = Macho;
     peso = 0;
  	racionDiaria = 0;
 }
