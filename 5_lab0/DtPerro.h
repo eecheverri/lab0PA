@@ -13,7 +13,10 @@ private :
 
 public :
 	DtPerro();
-	DtPerro(string,Genero,float,float,RazaPerro,bool);
-
+	DtPerro(string,Genero,float,float,RazaPerro,bool);	
+	friend ostream& operator << (ostream&, const DtPerro&);
+	RazaPerro getRazaPerro();
+	bool getVacunaCachorro();
+	~DtPerro();
 };
 #endif

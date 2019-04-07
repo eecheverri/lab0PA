@@ -4,12 +4,14 @@ Socio::Socio() {
 	this->ci = "ci";
 	this->nombre = "nombre";
 	this->fechaIngreso = DtFecha();
+	this->tope = 0;
 }
 
 Socio::Socio(string ci,string nombre,DtFecha fechaIngreso){
 	this->ci = ci;
 	this->nombre = nombre;
 	this->fechaIngreso = fechaIngreso;
+	this->tope = 0;
 }
 
 string Socio::getCi(){

@@ -1,19 +1,57 @@
 #include <cstdlib>
 #include <iostream>
+#include <typeinfo>
 #include "DtMascota.h"
 #include "Genero.h"
 #include "RazaPerro.h"
 #include "TipoPelo.h"
 #include "DtFecha.h"
+#include "DtGato.h"
 #include "DtConsulta.h"
+#include "DtPerro.h"
+#include "Socio.h"
+#include "Gato.h"
+#include "Perro.h"
+#include "RazaPerro.h"
 
 #define MAX_SOCIOS 100
 
 using namespace std;
 
 
-void registrarSocio(string ci, string nombre, const DtMascota& dtMascota) /* Registra un socio con su mascota. El valor el atributo racionDiaria sedebe setear en 0.*/
+Socio** socios = new Socio* [MAX_SOCIOS];
+int cantSocios = 0;
+
+void registrarSocio(string ci, string nombre,const DtMascota& dtMascota) /* Registra un socio con su mascota. El valor el atributo racionDiaria sedebe setear en 0.*/
 {
+	Mascota* mascota;
+	//DtMascota dtmasc = DtMascota(dtMascota);
+	//Mascota* mascota = new Mascota()
+	try{
+		
+		DtGato dtGato = dynamic_cast<const DtGato&>(dtMascota);
+		//DtGato dtGato = dynamic_cast<DtGato>(const_cast<DtMascota&>(dtMascota));
+		
+		
+		mascota = new Gato(dtGato.getNombre(),dtGato.getgenero(),dtGato.getPeso(),dtGato.getTipoPelo());									
+		
+		
+		}catch(std::bad_cast){
+			try{
+			
+				//DtPerro dtPerro = dynamic_cast<DtPerro&>(dtMascota);
+				DtPerro dtPerro = dynamic_cast<const DtPerro&>(dtMascota);
+				mascota = new Perro(dtPerro.getNombre(),dtPerro.getgenero(),dtPerro.getPeso(),dtPerro.getRazaPerro(),dtPerro.getVacunaCachorro());
+		  	}catch(std::bad_cast){
+	        	cout << "Error\n";
+	      }
+	}
+	
+	Socio* socio = new Socio(ci,nombre,DtFecha());
+	
+	socio->agregarMascota(mascota);
+	socios[cantSocios] = socio;
+	cantSocios++;
 }
 
 void agregarMascota(string ci, const DtMascota& dtMascota) /*Agrega una nueva mascota a un socio ya registrado. Si no existe un socio registrado con esa cédula, 
@@ -59,12 +97,14 @@ int main() {
 	    cout << "Opcion: " << endl; 
 		int comando;
 		cin >> comando;			
-//void registrarSocio(string ci, string nombre, const DtMascota& dtMascota) 
+
 		if (comando == 1){	
-			string ci,nombreSocio,nombreMascota,generoNombre,tipoPeloNombre,razaPerro,tipoMascota;
+			string ci,nombreSocio,nombreMascota,tipoMascota;
+			int tipoPeloIndice,generoIndice,razaPerroIndice;
 			float  peso;
 			bool vacunaCachorro;
 			char tieneVacunaCachorro;			                   
+			//DtMascota dtMascota;
 			
 		 	cout << "Ingrese cedula: " << endl; 
 			cin >> ci;	
@@ -72,29 +112,71 @@ int main() {
 			cin >> nombreSocio;				
 			cout << "Ingrese nombre mascota: " << endl; 
 			cin >> nombreMascota;	
-			cout << "Ingrese genero mascota: M/H" << endl; 
-			cin >> generoNombre;
+			cout << "Ingrese genero mascota: Macho 1, Hembra 2" << endl; 
+			cin >> generoIndice;
+			/*Genero genero;
+			if (generoIndice == "M")
+				genero = Macho;
+			else
+				genero = Hembra;*/
+				
 			cout << "Ingrese peso: " << endl; 
 			cin >> peso;			
 			cout << "¿Es gato o perro? G/P: " << endl; 
 			cin >> tipoMascota;
 			if (tipoMascota == "G"){
-				cout << "Ingrese tipo de pelo: " << endl;
-				cin >> tipoPeloNombre;
+				cout << "Ingrese tipo de pelo Corto 1, Mediano 2, Largo 3: " << endl;
+				cin >> tipoPeloIndice;
+				/*TipoPelo tipoPelo;
+				if (tipoPeloIndice == "C")
+					tipoPelo = Corto;
+				else if (tipoPeloIndice == "M") 
+					tipoPelo = Mediano;
+				else
+					tipoPelo = Largo;*/
+				 DtGato dtPerro = DtGato(nombreMascota,static_cast<Genero>(generoIndice),peso,0,static_cast<TipoPelo>(tipoPeloIndice));
+	registrarSocio(ci, nombreSocio,dtPerro) ;
 			}else{
 				cout << "Ingrese raza del perro: " << endl;
-				cin >> razaPerro;
+				cin >> razaPerroIndice;
+				//if 
 				cout << "¿Tiene vacuna cachorro? S/N: " << endl;
 				cin >> tieneVacunaCachorro;
-				vacunaCachorro = (tieneVacunaCachorro == 'S');							
+				//vacunaCachorro = (tieneVacunaCachorro == 'S');							
+				DtPerro dtPerro = DtPerro(nombreMascota,static_cast<Genero>(generoIndice),peso,0,static_cast<RazaPerro>(razaPerroIndice),(tieneVacunaCachorro == 'S'));
+					registrarSocio(ci, nombreSocio,dtPerro) ;				
+					
 			}
+
+		
 			
-			
+		
 			
 		}
 
-		else if (comando == 2)
-				cout << "1) Registrar socio " << endl; 
+		else if (comando == 2){
+			int i;
+		cin >> i;
+		
+				Socio* socio = new Socio("123","nom",DtFecha());
+				Mascota* mascota = new Gato("nombre",Hembra,200,Corto);
+				socio->agregarMascota(mascota);
+				//DtMascota dtm = DtGato(mascota->getNombre(),mascota->getGenero(),mascota->getPeso(),200,static_cast<TipoPelo>(i));
+				DtGato dtm = DtGato(mascota->getNombre(),mascota->getGenero(),mascota->getPeso(),200,static_cast<TipoPelo>(i));
+				//DtMascota** coso = new DtMascota*[10];
+				//coso[1] =dynamic_cast<DtMascota&>(dtm) ;
+				//DtGato gato = dynamic_cast<DtGato&>(dtm);
+				//cout << mascota->getNombre() << endl; 
+				 // cout << dynamic_cast<DtGato&>(dtm) << endl; 
+				  //cout << dynamic_cast<DtGato&>(coso[1]) << endl; 
+				 
+				//DtMascota** mascotas = new DtMascota*;
+				//DtMascota& dtMascota2 = DtGato(nombreMascota,static_cast<Genero>(generoIndice),peso,0,static_cast<TipoPelo>(tipoPeloIndice));				 
+				 //DtMascota& dtMascota2 = DtGato(nombreMascota,static_cast<Genero>(generoIndice),peso,0,static_cast<TipoPelo>(tipoPeloIndice));
+				  //dynamic_cast<DtGato&>(dtMascota);
+				//cout << dynamic_cast<DtGato&>(dtMascota2) << endl; 
+
+		}		
 		else if (comando == 3)
 				cout << "1) Registrar socio " << endl; 
 		else if (comando == 4)

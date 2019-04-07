@@ -25,7 +25,7 @@ class Gato: public Mascota
           float obtenerRacionDiaria();
           
           //Destructor
-          virtual ~Gato();
+           ~Gato();
           
 };
 
