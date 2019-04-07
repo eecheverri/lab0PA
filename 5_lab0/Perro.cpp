@@ -39,7 +39,7 @@ bool Perro::getVacunaCachorro()
 //Operaciones
 float Perro::obtenerRacionDiaria()
 {
-  return getPeso() * 0.025;
+  return getPeso() * 0.025f;
 }
 
   

@@ -6,9 +6,9 @@
 #include "Genero.h"
 
 class Perro: public Mascota{
-  private: RazaPerro raza;
-           bool vacunaCachorro;
-           
+  private: 
+  		RazaPerro raza;
+        bool vacunaCachorro;           
   public:
           //constructor por defecto
           Perro();

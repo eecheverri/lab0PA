@@ -14,12 +14,12 @@ protected :
 
 public :
 	DtMascota();
-	DtMascota(string ,Genero ,float  ,float );
+	DtMascota(string ,Genero ,float ,float );
 	DtMascota(const DtMascota&);
 	string getNombre();
 	Genero getgenero();
 	float getPeso();
-	float getracionDiaria();
+	virtual float getracionDiaria() = 0;
 	virtual~DtMascota();
 };
 #endif

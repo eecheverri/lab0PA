@@ -26,9 +26,8 @@ TipoPelo Gato::getTipoPelo()
 //Operaciones
 float Gato::obtenerRacionDiaria()
 {
-  return getPeso() * 0.015;//base->peso * 0.015;
+  return this->getPeso() * 0.015f;//base->peso * 0.015;
 }
 
-  
 //Destructor
 Gato::~Gato(){}

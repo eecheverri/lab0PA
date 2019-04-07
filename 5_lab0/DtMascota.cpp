@@ -37,8 +37,8 @@ Genero DtMascota::getgenero () {
 float DtMascota::getPeso () {
 	return this->peso;
 }
-float DtMascota::getracionDiaria () {
+/*float DtMascota::getracionDiaria () {
 	return this->racionDiaria;
-}
+}*/
 
 DtMascota::~DtMascota(){}

@@ -15,6 +15,24 @@ DtPerro::DtPerro (string nombre,Genero genero,float peso,float racionDiaria,Raza
 	this->vacunaCachorro = vacunaCachorro;
 }
 
+DtPerro::DtPerro (const DtPerro& dtPerro){	
+	this->nombre = dtPerro.nombre;	
+	this->genero = dtPerro.genero;
+    this->peso = dtPerro.peso;
+ 	this->racionDiaria = dtPerro.racionDiaria;
+	this->raza = dtPerro.raza;;
+	this->vacunaCachorro = dtPerro.vacunaCachorro;;
+}
+
+DtPerro::DtPerro (Perro* perro){	
+	this->nombre = perro->getNombre();	
+	this->genero = perro->getGenero();
+    this->peso = perro->getPeso();
+ 	this->racionDiaria = perro->obtenerRacionDiaria();
+	this->raza = perro->getRazaPerro();;
+	this->vacunaCachorro = perro->getVacunaCachorro();
+}
+
 ostream& operator <<(ostream& salida, const DtPerro& dtp) {
 	cout << "Nombre: " << dtp.nombre << "\nGenero: " << dtp.genero << "\nPeso: " << dtp.peso<< " kg " << "\nRacion Diaria: " << dtp.racionDiaria << "\nTiene vacuna del Cachorro: " ;	
 	if (dtp.vacunaCachorro)
@@ -32,6 +50,10 @@ RazaPerro DtPerro::getRazaPerro(){
 
 bool DtPerro::getVacunaCachorro(){
 	return 	this->vacunaCachorro; 
+}
+
+float DtPerro::getracionDiaria() {
+	return this->racionDiaria;
 }
 
 DtPerro::~DtPerro(){}

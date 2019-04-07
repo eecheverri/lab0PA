@@ -43,7 +43,9 @@ class Socio
   void setFechaIngreso(DtFecha);
   DtFecha getFechaIngreso();
   
-  void agregarMascota(Mascota*);  
+  void agregarMascota(Mascota*); 
+  
+  Mascota** obtenerMascotas(int&);
   
   //void agregarConsulta(Consulta*); 
   

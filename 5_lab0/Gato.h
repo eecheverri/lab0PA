@@ -13,19 +13,19 @@ class Gato: public Mascota
   
   public:
           //constructor por defecto
-          Gato();
+        Gato();
           //constructor comun
-          Gato(string, Genero, float, TipoPelo);
+        Gato(string, Genero, float, TipoPelo);    
           
-          //propiedades
-          void setTipoPelo(TipoPelo);
-          TipoPelo getTipoPelo();
+        //propiedades
+        void setTipoPelo(TipoPelo);
+        TipoPelo getTipoPelo();
                     
-          //operaciones
-          float obtenerRacionDiaria();
+        //operaciones
+        float obtenerRacionDiaria();
           
-          //Destructor
-           ~Gato();
+        //Destructor
+        ~Gato();
           
 };
 

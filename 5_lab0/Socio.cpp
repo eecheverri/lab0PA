@@ -45,6 +45,14 @@ void Socio::agregarMascota(Mascota* mascota) {
 	
 }
 
+Mascota** Socio::obtenerMascotas(int& cantMascotas) {
+	cantMascotas = this->tope;
+	Mascota** mascotasArr = new Mascota*[this->tope];
+	for( int i = 0; i <= this->tope; i++ ) {
+	  mascotasArr[i] = this->mascotas[i];
+	}
+	return mascotasArr;
+}
 Socio::~Socio() {
 
 }

@@ -2,6 +2,7 @@
 #define DtGato_H
 #include "TipoPelo.h"
 #include "DtMascota.h"
+#include "Gato.h"
 
 using namespace std;
 
@@ -13,8 +14,11 @@ private :
 public :
 	DtGato();
 	DtGato(string,Genero,float,float,TipoPelo);
+	DtGato(const DtGato&);
+	DtGato(Gato*);
 	friend ostream& operator << (ostream&, const DtGato&);
 	TipoPelo getTipoPelo();
+	float getracionDiaria();
 	~DtGato();
 };
 #endif
