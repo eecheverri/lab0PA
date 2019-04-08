@@ -2,7 +2,7 @@
 FileName=lab0.dev
 Name=lab0
 Type=1
-Ver=2
+Ver=1
 ObjFiles=
 Includes=
 Libs=
@@ -261,9 +261,9 @@ OverrideBuildCmd=0
 BuildCmd=
 
 [Unit25]
-FileName=DtConsilta.cpp
+FileName=DtConsulta.cpp
 CompileCpp=1
-Folder=
+Folder=lab0
 Compile=1
 Link=1
 Priority=1000
