@@ -1,5 +1,7 @@
 #ifndef A_H
 #define A_H
+#include "B.h"
+#include "C.h"
 
 class B;//forward declaration
 class C;//forward declaration
@@ -17,8 +19,7 @@ class A{
 		void nombreClase();
 };
 
-#include "B.h"
-#include "C.h"
+
 
 #endif
 
