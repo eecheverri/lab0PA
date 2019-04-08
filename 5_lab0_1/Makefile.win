@@ -1,0 +1,59 @@
+# Project: lab0
+# Makefile created by Dev-C++ 5.1.1.0
+
+CPP      = g++.exe -D__DEBUG__
+CC       = gcc.exe -D__DEBUG__
+WINDRES  = windres.exe
+OBJ      = main.o DtMascota.o DtFecha.o DtPerro.o DtGato.o Consulta.o Gato.o Mascota.o Perro.o Socio.o DtConsulta.o $(RES)
+LINKOBJ  = main.o DtMascota.o DtFecha.o DtPerro.o DtGato.o Consulta.o Gato.o Mascota.o Perro.o Socio.o DtConsulta.o $(RES)
+LIBS     = -L"D:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc  -g3 
+INCS     = -I"D:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" 
+CXXINCS  = -I"D:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" 
+BIN      = lab0.exe
+CXXFLAGS = $(CXXINCS)   -g3
+CFLAGS   = $(INCS)   -g3
+RM       = rm -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before lab0.exe all-after
+
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o "lab0.exe" $(LIBS)
+
+main.o: main.cpp
+	$(CPP) -c main.cpp -o main.o $(CXXFLAGS)
+
+DtMascota.o: DtMascota.cpp
+	$(CPP) -c DtMascota.cpp -o DtMascota.o $(CXXFLAGS)
+
+DtFecha.o: DtFecha.cpp
+	$(CPP) -c DtFecha.cpp -o DtFecha.o $(CXXFLAGS)
+
+DtPerro.o: DtPerro.cpp
+	$(CPP) -c DtPerro.cpp -o DtPerro.o $(CXXFLAGS)
+
+DtGato.o: DtGato.cpp
+	$(CPP) -c DtGato.cpp -o DtGato.o $(CXXFLAGS)
+
+Consulta.o: Consulta.cpp
+	$(CPP) -c Consulta.cpp -o Consulta.o $(CXXFLAGS)
+
+Gato.o: Gato.cpp
+	$(CPP) -c Gato.cpp -o Gato.o $(CXXFLAGS)
+
+Mascota.o: Mascota.cpp
+	$(CPP) -c Mascota.cpp -o Mascota.o $(CXXFLAGS)
+
+Perro.o: Perro.cpp
+	$(CPP) -c Perro.cpp -o Perro.o $(CXXFLAGS)
+
+Socio.o: Socio.cpp
+	$(CPP) -c Socio.cpp -o Socio.o $(CXXFLAGS)
+
+DtConsulta.o: DtConsulta.cpp
+	$(CPP) -c DtConsulta.cpp -o DtConsulta.o $(CXXFLAGS)
