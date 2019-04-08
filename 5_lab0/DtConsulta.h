@@ -4,6 +4,7 @@
 #include <cstdlib>
 #include <iostream>
 #include "DtFecha.h"
+#include "Consulta.h"
 
 using namespace std;
 
@@ -16,7 +17,10 @@ private :
 public :
 	DtConsulta();
 	DtConsulta(DtFecha ,string);
-	
+	DtConsulta(Consulta*);
+	DtFecha getFecha();
+	string getMotivo();
+	friend ostream& operator << (ostream&, const DtConsulta&);
 	~DtConsulta();
 
 };

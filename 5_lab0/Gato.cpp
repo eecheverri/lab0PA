@@ -29,5 +29,9 @@ float Gato::obtenerRacionDiaria()
   return this->getPeso() * 0.015f;//base->peso * 0.015;
 }
 
+string Gato::SoyUn(){
+	return "G";
+}
+
 //Destructor
 Gato::~Gato(){}

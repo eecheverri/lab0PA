@@ -26,7 +26,7 @@ class Gato: public Mascota
           
         //Destructor
         ~Gato();
-          
+        string SoyUn();
 };
 
 #endif

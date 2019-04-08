@@ -1,6 +1,8 @@
 #ifndef DtMascota_H
 #define DtMascota_H
 #include "Genero.h"
+#include <cstdlib>
+#include <iostream>
 
 using namespace std;
 
@@ -21,5 +23,6 @@ public :
 	float getPeso();
 	virtual float getracionDiaria() = 0;
 	virtual~DtMascota();
+
 };
 #endif

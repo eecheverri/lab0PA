@@ -3,6 +3,8 @@
 #include "TipoPelo.h"
 #include "DtMascota.h"
 #include "Gato.h"
+#include <cstdlib>
+#include <iostream>
 
 using namespace std;
 
@@ -16,9 +18,10 @@ public :
 	DtGato(string,Genero,float,float,TipoPelo);
 	DtGato(const DtGato&);
 	DtGato(Gato*);
-	friend ostream& operator << (ostream&, const DtGato&);
+	friend ostream& operator << (ostream&, const DtGato&);	
 	TipoPelo getTipoPelo();
 	float getracionDiaria();
 	~DtGato();
+
 };
 #endif

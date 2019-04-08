@@ -42,6 +42,8 @@ class Mascota
 	  //Destructor
 	  virtual ~Mascota();
 	  
+	virtual string SoyUn()=0;
+	  	
 };//Fin mascota
 	
 #endif

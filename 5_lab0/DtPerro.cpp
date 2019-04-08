@@ -39,7 +39,7 @@ ostream& operator <<(ostream& salida, const DtPerro& dtp) {
 			cout << "Si" ;
 	else
 		cout << "No"; 
-	
+	cout << "\n"; 
 	return salida;
 }
 
@@ -55,5 +55,7 @@ bool DtPerro::getVacunaCachorro(){
 float DtPerro::getracionDiaria() {
 	return this->racionDiaria;
 }
+
+
 
 DtPerro::~DtPerro(){}

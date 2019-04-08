@@ -1,17 +1,18 @@
 #include "Socio.h"
+#include <iostream>
 
 Socio::Socio() {
 	this->ci = "ci";
 	this->nombre = "nombre";
 	this->fechaIngreso = DtFecha();
-	this->tope = 0;
+	this->topeM = 0;
 }
 
 Socio::Socio(string ci,string nombre,DtFecha fechaIngreso){
 	this->ci = ci;
 	this->nombre = nombre;
 	this->fechaIngreso = fechaIngreso;
-	this->tope = 0;
+	this->topeM = 0;
 }
 
 string Socio::getCi(){
@@ -38,23 +39,52 @@ DtFecha Socio::getFechaIngreso(){
 	return this->fechaIngreso;	
 }
 
-void Socio::agregarMascota(Mascota* mascota) {
-	
-	this->tope++;
-	this->mascotas[tope] = mascota;
-	
+void Socio::agregarMascota(Mascota* mascota) {		
+	//cout << "this->mascotas[i]" << mascota->getNombre();	
+	this->mascotas[topeM] = mascota;	
+	//cout << "this--------------------------->mascotas[i]" << this->mascotas[this->topeM]->getNombre();	
+	this->topeM++;	
 }
 
 Mascota** Socio::obtenerMascotas(int& cantMascotas) {
-	cantMascotas = this->tope;
-	Mascota** mascotasArr = new Mascota*[this->tope];
-	for( int i = 0; i <= this->tope; i++ ) {
-	  mascotasArr[i] = this->mascotas[i];
+	cantMascotas = this->topeM;
+	Mascota** mascotasArr = new Mascota*[this->topeM];
+	//cout << "mascotasArr[i] "<<mascotasArr[1]->getNombre() :
+	//cout << "this->mascotas[i]" << this->mascotas[1]->getNombre();
+	for( int i = 0; i < this->topeM; i++ ) {		
+	  mascotasArr[i] = this->mascotas[i];	  
 	}
 	return mascotasArr;
 }
-Socio::~Socio() {
 
+void Socio::agregarConsulta(Consulta* consulta){	
+	this->consultas[topeC] = consulta;	
+	this->topeC++;
+}
+
+Consulta** Socio::verConsultasAntesDeFecha(DtFecha dtFecha,int& cantConsultas){		
+	Consulta** consultasArr = new Consulta*[this->topeC];
+	cantConsultas = 0;
+	for( int i = 0; i < this->topeC; i++ ) {	
+	//cout << "------------------" << consultas[i]->getFechaConsulta() << "\n";
+		if (this->consultas[i]->getFechaConsulta() < dtFecha ) {
+	  		consultasArr[i] = this->consultas[i];	  
+	  		cantConsultas++;	  		
+	  	}
+	}	
+	return consultasArr;
+	
+	
+}
+  
+Socio::~Socio() {
+	for( int i = 0; i < this->topeM; i++ ) {		
+	  delete this->mascotas[i];	  
+	}
+	
+	for( int i = 0; i <= this->topeC; i++ ) {
+	  delete this->consultas[i];
+	}
 }
 
 

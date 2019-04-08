@@ -1,5 +1,3 @@
-#include <cstdlib>
-#include <iostream>
 #include "TipoPelo.h"
 #include "DtGato.h"
 
@@ -56,5 +54,6 @@ TipoPelo DtGato::getTipoPelo() {
 float DtGato::getracionDiaria() {
 	return this->racionDiaria;
 }
+
 
 DtGato::~DtGato(){}

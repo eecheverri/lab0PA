@@ -6,6 +6,7 @@
 #include "Consulta.h"
 
 #define MAX_MASCOTAS 10
+#define MAX_CONSULTAS 20
 
 using namespace std;
 
@@ -23,7 +24,8 @@ class Socio
     string nombre;
     DtFecha fechaIngreso;
 	Mascota* mascotas[MAX_MASCOTAS];
-	int tope;
+	Consulta* consultas[MAX_CONSULTAS];
+	int topeM,topeC;
 	
   public:
   //Constructores
@@ -47,9 +49,9 @@ class Socio
   
   Mascota** obtenerMascotas(int&);
   
-  //void agregarConsulta(Consulta*); 
+  void agregarConsulta(Consulta*); 
   
-  //Consulta** verConsultasAntesDeFecha(DtFecha);
+  Consulta** verConsultasAntesDeFecha(DtFecha,int&);
   
   //Destructor
   ~Socio();

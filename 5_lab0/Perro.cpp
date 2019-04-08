@@ -42,6 +42,8 @@ float Perro::obtenerRacionDiaria()
   return getPeso() * 0.025f;
 }
 
-  
+string Perro::SoyUn(){
+	return "P";
+}
 //Destructor
 Perro::~Perro(){}

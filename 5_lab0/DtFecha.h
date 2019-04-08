@@ -1,5 +1,7 @@
 #ifndef DtFecha_H
 #define DtFecha_H
+#include <cstdlib>
+#include <iostream>
 
 using namespace std;
 
@@ -17,6 +19,9 @@ public :
 	int getDia();
 	int getMes();
 	int getAnio();
+	friend ostream& operator << (ostream&, const DtFecha&);
+	friend bool operator < (const DtFecha&,const DtFecha&);
+	friend bool operator <= (const DtFecha&,const DtFecha&);
 };
 #endif
 
