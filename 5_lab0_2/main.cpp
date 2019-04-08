@@ -1,122 +1,28 @@
-[Project]
-FileName=D:\ezech\Documents\lab0_parte2.dev
-Name=lab0_parte2
-Type=1
-Ver=1
-ObjFiles=
-Includes=
-Libs=
-PrivateResource=
-ResourceIncludes=
-MakeIncludes=
-Compiler=
-CppCompiler=
-Linker=
-IsCpp=1
-Icon=
-ExeOutput=
-ObjectOutput=
-LogOutput=
-LogOutputEnabled=0
-OverrideOutput=0
-OverrideOutputName=
-HostApplication=
-Folders=
-CommandLine=
-UseCustomMakefile=0
-CustomMakefile=
-IncludeVersionInfo=0
-SupportXPThemes=0
-CompilerSet=0
-CompilerSettings=000000000000000000000000000
-UnitCount=7
+    
+#include <iostream>
+#include <cstdlib>
+#include "A.h"
+#include "B.h"
+#include "C.h"
 
-[VersionInfo]
-Major=1
-Minor=0
-Release=0
-Build=0
-LanguageID=1033
-CharsetID=1252
-CompanyName=
-FileVersion=
-FileDescription=Developed using the Dev-C++ IDE
-InternalName=
-LegalCopyright=
-LegalTrademarks=
-OriginalFilename=
-ProductName=
-ProductVersion=
-AutoIncBuildNr=0
-SyncProduct=1
+using namespace std;
 
-[Unit1]
-FileName=A.cpp
-CompileCpp=1
-Folder=lab0_parte2
-Compile=1
-Link=1
-Priority=1000
-OverrideBuildCmd=0
-BuildCmd=
-
-[Unit2]
-FileName=A.h
-CompileCpp=1
-Folder=lab0_parte2
-Compile=1
-Link=1
-Priority=1000
-OverrideBuildCmd=0
-BuildCmd=
-
-[Unit3]
-FileName=B.cpp
-CompileCpp=1
-Folder=lab0_parte2
-Compile=1
-Link=1
-Priority=1000
-OverrideBuildCmd=0
-BuildCmd=
-
-[Unit4]
-FileName=B.h
-CompileCpp=1
-Folder=lab0_parte2
-Compile=1
-Link=1
-Priority=1000
-OverrideBuildCmd=0
-BuildCmd=
-
-[Unit5]
-FileName=C.cpp
-CompileCpp=1
-Folder=lab0_parte2
-Compile=1
-Link=1
-Priority=1000
-OverrideBuildCmd=0
-BuildCmd=
-
-[Unit6]
-FileName=C.h
-CompileCpp=1
-Folder=lab0_parte2
-Compile=1
-Link=1
-Priority=1000
-OverrideBuildCmd=0
-BuildCmd=
-
-[Unit7]
-FileName=main.cpp
-CompileCpp=1
-Folder=lab0_parte2
-Compile=1
-Link=1
-Priority=1000
-OverrideBuildCmd=0
-BuildCmd=
-
+int main() {
+	int a = 4;
+	int b = 3;
+	int c = 2;
+	A* objA = new A();
+	B* objB = new B();
+	C* objC = new C();
+	
+	objA->setA(a);
+	objA->nombreClase(); 
+	cout << "El atributo es: "<< objA->getA(a)<< endl;
+	objB->setB(b);
+	objB->nombreClase();
+	cout << "El atributo es: "<< objB->getB(b)<<endl;
+	objC->setC(c);
+	objC->nombreClase();
+	cout << "El atributo es: "<< objC->getC(b)<<endl;
+	return 0;
+}
