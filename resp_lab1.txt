@@ -1,0 +1,9 @@
+¿Cuáles son las dependencias circulares que fueron necesarias solucionar para que el programa compile?
+
+Las clases A, B y C al tener navegabilidad doble, hace que se llamen entre ellas y genera un error a la hora de compilar. 
+Por eso es necesario declarar dos foward declaration de Class B y Class C en la Class A para solucionar el problema de 
+dependencias y así el programa pueda compilar.
+
+¿Qué es forward declaration?
+Un foward declaration es una declaración de un identificador (que denota una entidad como un tipo, una variable o una
+función) para la cual aún no se ha dado una definición completa.
