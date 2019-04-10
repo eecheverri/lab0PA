@@ -1,0 +1,38 @@
+main: main.o Consulta.o DtConsulta.o DtFecha.o DtGato.o DtMascota.o DtPerro.o Gato.o Mascota.o Perro.o Socio.o	
+	g++ -Wall -Werror Consulta.o DtConsulta.o DtFecha.o DtGato.o DtMascota.o DtPerro.o Gato.o Mascota.o Perro.o Socio.o main.o -o main
+
+main.o: main.cpp
+	g++ -c main.cpp
+
+Consulta.o: Consulta.cpp
+	g++ -c Consulta.cpp
+
+DtConsulta.o: DtConsulta.cpp
+	g++ -c DtConsulta.cpp
+
+DtFecha.o: DtFecha.cpp
+	g++ -c DtFecha.cpp
+
+DtGato.o: DtGato.cpp
+	g++ -c DtGato.cpp
+
+DtMascota.o: DtMascota.cpp
+	g++ -c DtMascota.cpp
+
+DtPerro.o: DtPerro.cpp
+	g++ -c DtPerro.cpp
+
+Gato.o: Gato.cpp
+	g++ -c Gato.cpp
+
+Mascota.o: Mascota.cpp
+	g++ -c Mascota.cpp
+
+Perro.o: Perro.cpp
+	g++ -c Perro.cpp
+
+Socio.o: Socio.cpp
+	g++ -c Socio.cpp
+
+clean:
+	rm -rf main *.o
