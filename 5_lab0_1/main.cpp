@@ -27,19 +27,16 @@ int cantSocios = 0;
 void registrarSocio(string ci, string nombre,const DtMascota& dtMascota) /* Registra un socio con su mascota. El valor el atributo racionDiaria sedebe setear en 0.*/
 {
 	Mascota* mascota;
-	//DtMascota dtmasc = DtMascota(dtMascota);
-	//Mascota* mascota = new Mascota()
+
 	try{
 		
 		DtGato dtGato = dynamic_cast<const DtGato&>(dtMascota);
-		//DtGato dtGato = dynamic_cast<DtGato>(const_cast<DtMascota&>(dtMascota));
 				
 		mascota = new Gato(dtGato.getNombre(),dtGato.getgenero(),dtGato.getPeso(),dtGato.getTipoPelo());											
 		//cout << "-------------------------- agrego GATO en registrar socio " << mascota->getNombre()  <<"\n";	
 		}catch(std::bad_cast){
 			try{
-			
-				//DtPerro dtPerro = dynamic_cast<DtPerro&>(dtMascota);
+
 				DtPerro dtPerro = dynamic_cast<const DtPerro&>(dtMascota);
 				mascota = new Perro(dtPerro.getNombre(),dtPerro.getgenero(),dtPerro.getPeso(),dtPerro.getRazaPerro(),dtPerro.getVacunaCachorro());
 				//cout << "-------------------------- agrego perro en registrar socio " << mascota->getNombre()  <<"\n";	
@@ -60,7 +57,6 @@ se levanta una excepción std::invalid_argument.*/
 {
 	Mascota* mascota;
 
-
 	int i=0;
 	bool encontro = false;
 	while (not encontro && i< cantSocios){
@@ -69,23 +65,24 @@ se levanta una excepción std::invalid_argument.*/
 		else
 			i++;	
 	}
+	
 	try{		
 		DtGato dtGato = dynamic_cast<const DtGato&>(dtMascota);		
 		
 		mascota = new Gato(dtGato.getNombre(),dtGato.getgenero(),dtGato.getPeso(),dtGato.getTipoPelo());
 		//cout << "-------------------------- agrego gato " << mascota->getNombre()  <<"\n";	
 
-		}catch(std::bad_cast){
-			try{				
-				DtPerro dtPerro = dynamic_cast<const DtPerro&>(dtMascota);
-				mascota = new Perro(dtPerro.getNombre(),dtPerro.getgenero(),dtPerro.getPeso(),dtPerro.getRazaPerro(),dtPerro.getVacunaCachorro());
-				//cout << "-------------------------- agrego perro " << mascota->getNombre()  <<"\n";	
+	}catch(std::bad_cast){
+		try{				
+			DtPerro dtPerro = dynamic_cast<const DtPerro&>(dtMascota);
+			mascota = new Perro(dtPerro.getNombre(),dtPerro.getgenero(),dtPerro.getPeso(),dtPerro.getRazaPerro(),dtPerro.getVacunaCachorro());
+			//cout << "-------------------------- agrego perro " << mascota->getNombre()  <<"\n";	
 
-		  	}catch(std::bad_cast){
-	        	cout << "Error\n";
-	      }
+		}catch(std::bad_cast){
+			cout << "Error\n";
+		}
 	}
-	//cout << "--------------------------  i" << encontro  <<"\n";	
+	
 	if (encontro)		
 		socios[i]->agregarMascota(mascota);
 	else
@@ -148,13 +145,11 @@ void eliminarSocio(string ci) /*que elimina al socio, sus consultas y sus mascot
 			i++;	
 	}
 
-
 	if (encontro){		
 		delete socios[i];
 		cantSocios--;
 		socios[i] = socios[cantSocios];
-	}
-	else
+	}else
 		throw std::invalid_argument( "No se encontro el socio." );
 }
 
@@ -170,49 +165,55 @@ una excepción std::invalid_argument.*/
 		else
 			i++;	
 	}
-	if (encontro){	
+	
+	if (encontro){
 		Mascota** mascotas;
 		mascotas = socios[i]->obtenerMascotas(cantMascotas);
 		DtMascota* dtMascota;
 		DtMascota** dtMascotas = new DtMascota*[cantMascotas];
 	
-	
-		//cout << cantMascotas ;	
-		//Mascota* mascota = mascotas[1];		
-		//string c = mascota->getNombre();
-		//cout << "--------------------------" << mascota->getNombre();
 		for( int i = 0; i < cantMascotas; i++ ) {
-			//DtMascota* dtMascota = new DtMascota(mascotas[i]->getNombre(),mascotas[i]->getGenero(),mascotas[i]->getPeso(),mascotas[i]->obtenerRacionDiaria());
-			//DtMascota* dtMascota = new DtMascota(mascotas[i]->getNombre(),mascotas[i]->getGenero(),mascotas[i]->getPeso(),mascotas[i]->obtenerRacionDiaria());
-			Mascota* mascota = mascotas[i];				
-			//cout << "-----------------------------------------------mascota.SoyUn" << mascota->SoyUn();
-			try{									
-				//cout << "--------------------------" << mascota->getNombre() << i << "\n";		
+			
+			Mascota* mascota = mascotas[i];			
+			
+			/* CODIGO MAS CORRECTO PERO SIN PROBAR
+			Gato* gato = dynamic_cast<Gato*>(mascota);
+			if (Gato* <> nullptr){
+				Gato* gato = dynamic_cast<Gato*>(mascota);					
+				DtGato* dtGato = new DtGato(gato);							
+				dtMascota = dynamic_cast<DtMascota*>(dtGato);
+				
+			}Else{
+				Perro* perro = dynamic_cast<Perro*>(mascota);					
+				DtPerro* dtPerro = new DtPerro(perro);							
+				dtMascota = dynamic_cast<DtPerro*>(dtPerro);				
+			}
+			*/
+
+			try{	
 				if (mascota->SoyUn() == "P")	
 					throw std::bad_cast();	
-				Gato* gato = dynamic_cast<Gato*>(mascota);	
-				//cout << "--------------------------" << gato->getNombre()  <<"\n";	
-				//cout << "--------------------------GATOO en obtenerMascotas " << mascota->getNombre();					
+				Gato* gato = dynamic_cast<Gato*>(mascota);				
 				DtGato* dtGato = new DtGato(gato);							
-				/*DtMascota**/ dtMascota = dynamic_cast<DtMascota*>(dtGato); ;			
+				dtMascota = dynamic_cast<DtMascota*>(dtGato); ;			
 			}catch(std::bad_cast){
 				try{				
-					Perro* perro = dynamic_cast<Perro*>(mascota);	
-					//cout << "--------------------------" << perro->getNombre()  <<"\n";		
-					//cout << "--------------------------PEROOO en obtenerMascotas " << mascota->getNombre();					
+					Perro* perro = dynamic_cast<Perro*>(mascota);					
 					DtPerro* dtPerro = new DtPerro(perro);							
-					/*DtMascota**/ dtMascota = dynamic_cast<DtPerro*>(dtPerro); ;	
+					dtMascota = dynamic_cast<DtPerro*>(dtPerro);	
 
 			  	}catch(std::bad_cast){
 		        	cout << "Error\n";
-		    }
-	}						
+				}	
+					
+		    }					
 			
 		 	dtMascotas[i] = dtMascota;
 		}
-		return dtMascotas;		
-	}
-	else
+		
+		return dtMascotas;
+		
+	}else
 		throw std::invalid_argument( "No se encontro el socio." );
 }
 
@@ -260,17 +261,16 @@ int main() {
 				DtGato dtGato = DtGato(nombreMascota,static_cast<Genero>(generoIndice),peso,0,static_cast<TipoPelo>(tipoPeloIndice));
 				registrarSocio(ci, nombreSocio,dtGato) ;
 			}else{
-				cout << "Ingrese raza del perro: " << endl;
+				cout << "Ingrese raza del perro labrador = 1, ovejero = 2, bulldog = 3, pitbull = 4, collie = 5, pekines = 6, otro = 7: " << endl;
 				cin >> razaPerroIndice;
 				cout << "¿Tiene vacuna cachorro? S/N: " << endl;
 				cin >> tieneVacunaCachorro;							
 				DtPerro dtPerro = DtPerro(nombreMascota,static_cast<Genero>(generoIndice),peso,0,static_cast<RazaPerro>(razaPerroIndice),(tieneVacunaCachorro == 'S'));
 				registrarSocio(ci, nombreSocio,dtPerro) ;			
 					
-			}	
-		}
-		
-		else if (comando == 2){ //agregarMascota
+			}
+			
+		}else if (comando == 2){ //agregarMascota
 			
 			string ci,nombreMascota,tipoMascota;
 			int tipoPeloIndice,generoIndice,razaPerroIndice;
@@ -296,7 +296,7 @@ int main() {
 				agregarMascota(ci,dtGato);
 				//cout << "GATOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO " << endl; 
 			}else{
-				cout << "Ingrese raza del perro: " << endl;
+				cout << "Ingrese raza del perro labrador = 1, ovejero = 2, bulldog = 3, pitbull = 4, collie = 5, pekines = 6, otro = 7: " << endl;
 				cin >> razaPerroIndice;
 				cout << "¿Tiene vacuna cachorro? S/N: " << endl;
 				cin >> tieneVacunaCachorro;							
@@ -306,9 +306,7 @@ int main() {
 					
 			}
 
-		}
-		
-		else if (comando == 3){//ingresarConsulta
+		}else if (comando == 3){//ingresarConsulta
 			string ci,motivo;
 			cout << "Ingrese ci: " << endl; 
 			cin >> ci;	
@@ -317,10 +315,8 @@ int main() {
 			
 			ingresarConsulta(motivo,ci);
 			
-		}
-				
-		else if (comando == 4){//verConsultasAntesDeFecha
-			//DtConsulta** verConsultasAntesDeFecha(const DtFecha& Fecha,string ciSocio, int& cantConsultas)
+		}else if (comando == 4){//verConsultasAntesDeFecha
+
 			string ci;	
 			int dia,mes,anio,cantConsultas;
 			cout << "Ingrese ci: " << endl; 
@@ -336,30 +332,26 @@ int main() {
 			for( int i = 0; i < cantConsultas; i++ ) {
 				cout << *dtConsultas[i];
 			}
-		}				
-		else if (comando == 5){//eliminarSocio
+			
+		}else if (comando == 5){//eliminarSocio
 			string ci;			
 			cout << "Ingrese ci: " << endl; 
 			cin >> ci;
 			eliminarSocio(ci);
-		}				
-		else if (comando == 6){
+			
+		}else if (comando == 6){
 			string ci;
 			int cantMascotas = 0;
 			cout << "Ingrese ci: " << endl; 
 			cin >> ci;
 			DtMascota** mascotas = obtenerMascotas(ci,cantMascotas);
 			
-			//cout << "------------------------------------------" << cantMascotas << endl; 
 			for( int i = 0; i < cantMascotas; i++ ) {
 				try{
 					
 					
 					cout << dynamic_cast<DtGato&>(*mascotas[i]) << endl; 
-					//cout << "------------------------------------------" << mascotas[i]->getNombre() << endl; 
-					//cout << mascotas[i]->getNombre() << endl; 
-					//DtGato dtGato = dynamic_cast<const DtGato&>(dtMascota);					
-					//cout <<  dynamic_cast<DtGato&>(mascotas[i]) << endl; 
+
 				}catch(std::bad_cast){
 					try{				
 						cout << dynamic_cast<DtPerro&>(*mascotas[i]) << endl; 
@@ -370,14 +362,10 @@ int main() {
 				}
 			
 			}
-			//cout << "6) Mostrar mascotas " << endl; 
 				
-		}							
-		else if (comando ==0 )
+		}else if (comando ==0 )
 			return(0);
-				
-		
-		//system("pause");		
+					
 	}
 }
 
