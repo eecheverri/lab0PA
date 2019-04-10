@@ -347,8 +347,7 @@ int main() {
 			DtMascota** mascotas = obtenerMascotas(ci,cantMascotas);
 			
 			for( int i = 0; i < cantMascotas; i++ ) {
-				try{
-					
+				try{					
 					
 					cout << dynamic_cast<DtGato&>(*mascotas[i]) << endl; 
 
